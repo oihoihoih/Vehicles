@@ -1,0 +1,157 @@
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+    <nav class="navbar navbar-light bg-dark p-3">
+        <h1 class="display-1 text-warning">
+            Vehicles
+        </h1>
+    </nav>
+
+    <div class="container-fluid">
+
+        <!-- APP -->
+        <div id="app" class="row pt-3">
+            <div class="col-12">
+
+                <!-- FORMULARIO 1 
+                INTRODUCIR COCHE -->
+                <form id="addCar" class="card bg-warning d-flex flex-column">
+                    <div class="card-header bg-warning ml-4">
+                        <p class="h1">Añade un coche</p>
+                    </div>
+
+                    <div class="card-body form-inline d-flex justify-content-between align-items-center" id="carInfo" action="">
+                        <div class="form-group col-md-4">
+                            <label for="plate" class="sr-only">Matrícula:</label>
+                            <input type="text" id="plate" class="form-control col m-3 m-md-0" placeholder="matrícula del coche">
+                            <div class="invalid-feedback">
+                                Por favor, añade una matrícula correcta (4 números + 3 letras)
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="brand" class="sr-only">Marca:</label>
+                            <input type="text" id="brand" class="form-control col m-3 m-md-0" placeholder="marca del coche">
+                            <div class="invalid-feedback">
+                                Este campo es obligatorio
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="color" class="sr-only">Color:</label>
+                            <input type="text" id="color" class="form-control col m-3 m-md-0" placeholder="color del coche">
+                            <div class="invalid-feedback">
+                                Este campo es obligatorio
+                            </div>
+                        </div>
+
+                        <!-- <button onclick="createCar('1212SDS','SEAT','ROJO')"" class="btn btn-primary btn-block">Crear coche</button> -->
+                        <input type="button" onclick="createCar(plate.value, brand.value, color.value)" class="btn btn-dark col-4 col-md-2 mr-auto m-4 mt-5" value="Crear coche">
+                    </div>  
+                    
+                </form>
+
+                <!-- FORMULARIO 2
+                INTRODUCIR RUEDAS -->
+                <form id="addWheels" class="card bg-warning flex-column d-none">
+                    <div class="card-header bg-warning ml-4">
+                        <p class="h1">Añade las ruedas del coche coche</p>
+                    </div>
+
+                    <!-- RUEDA 1 -->
+                    <div class="card-body form-inline d-flex justify-content-between align-items-center" id="wheelsInfo" action="">
+                        <div class="form-group col-md-3">
+                            <h4 >Rueda 1</h4>
+
+                            <div class="row col-12 mb-4">
+                                <label for="brand1" class="sr-only">Marca rueda 1:</label>
+                                <input type="text" id="brand1" class="form-control col m-3 m-md-0" placeholder="marca de la primera rueda">
+                            </div>
+                            <div class="row col-12">
+                                <label for="diameter1" class="sr-only">Diámetro rueda 1:</label>
+                                <input type="number" id="diameter1" class="form-control col m-3 m-md-0" placeholder="diámetro de la primera rueda">
+                                <div class="invalid-feedback">
+                                    El diámetro tiene que ser mayor que 0.4 y menor que 2
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RUEDA 2 -->
+                        <div class="form-group col-md-3">
+                            <h4 >Rueda 2</h4>
+
+                            <div class="row col-12 mb-4">
+                                <label for="brand2" class="sr-only">Marca rueda 2:</label>
+                                <input type="text" id="brand2" class="form-control col m-3 m-md-0" placeholder="marca de la segunda rueda">
+                            </div>
+                            <div class="row col-12">
+                                <label for="diameter2" class="sr-only">Diámetro rueda 2:</label>
+                                <input type="number" id="diameter2" class="form-control col m-3 m-md-0" placeholder="diámetro de la segunda rueda">
+                                <div class="invalid-feedback">
+                                    El diámetro tiene que ser mayor que 0.4 y menor que 2
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RUEDA 3 -->
+                        <div class="form-group col-md-3">
+                            <h4>Rueda 3</h4>
+
+                            <div class="row col-12 mb-4">
+                                <label for="brand3" class="sr-only">Marca rueda 3:</label>
+                                <input type="text" id="brand3" class="form-control col m-3 m-md-0" placeholder="marca de la tercera rueda">
+                            </div>
+                            <div class="row col-12">
+                                <label for="diameter3" class="sr-only">Diámetro rueda 3:</label>
+                                <input type="number" id="diameter3" class="form-control col m-3 m-md-0" placeholder="diámetro de la tercera rueda">
+                                <div class="invalid-feedback">
+                                    El diámetro tiene que ser mayor que 0.4 y menor que 2
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RUEDA 4  -->
+                        <div class="form-group col-md-3">
+                            <h4>Rueda 4</h4>
+
+                            <div class="row col-12 mb-4">
+                                <label for="brand4" class="sr-only">Marca rueda 4:</label>
+                                <input type="text" id="brand4" class="form-control col m-3 m-md-0" placeholder="marca de la cuarta rueda">
+                            </div>
+                            <div class="row col-12">
+                                <label for="diameter4" class="sr-only">Diámetro rueda 4:</label>
+                                <input type="number" id="diameter4" class="form-control col m-3 m-md-0" placeholder="diámetro de la cuarta rueda">
+                                <div class="invalid-feedback">
+                                    El diámetro tiene que ser mayor que 0.4 y menor que 2
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <input type="button" id="wheelButton" class="btn btn-dark col-4 col-md-2 mr-auto m-4 mt-5" onClick="addCarWheels()" value="Añadir ruedas">
+                    </div>  
+                    
+                </form>
+            </div>
+
+
+
+            <div class="col-12">
+                <div id="carList" class="card border-warning bg-transparent mt-3 pb-3 d-none justify-content-center">
+                    <div class="card-header text-dark h4 bg-warning">Listado de coches</div>
+                    <div id="product-list" class="text-white text-warning pt-3">
+                    </div>
+                </div>
+            </div>
+            <!-- <p id="carInfo" ></p> -->
+            
+        </div>
+    </div>
+
+
+
+<script src="../models/car.js"></script>
+<script src="../models/wheel.js"></script>
+<script src="../controllers/controller.js"></script>
+</body>
